@@ -1,0 +1,72 @@
+@import "variables.scss";
+
+.header {
+  //position: fixed;
+  width: 100vw;
+  height: 100px;
+  background-color: $main_color;
+  border-bottom: 2px solid #e7e7e7;
+  padding: 10px 20px;
+  &__content {
+    display: flex;
+    height: 80px;
+    align-items: center;
+  }
+  &__logo {
+    font-size: 24px;
+    font-weight: 700;
+    width: 300px;
+  }
+  &__media{
+    flex: 1 0 auto;
+  }
+}
+.user-block {
+  display: flex;
+  align-items: center;
+  &__date {
+    padding-right: 10px;
+    font-style: italic;
+    text-align: end;
+  }
+  &__date div {
+    margin-bottom: 3px;
+  }
+  &__date div:last-child {
+    margin-bottom: 0;
+  }
+  &__logocontainer {
+    display: flex;
+    position: relative;
+    padding: 0 10px 0 10px;
+  }
+  &__logo {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border: 1px solid $dark;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__logo img {
+    position: absolute;
+    width: 50px;
+  }
+  &__role {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 45px;
+    top: 30px;
+  }
+  &__name {
+    padding: 0 10px 0 0;
+    font-weight: 600;
+  }
+  &__login-button button {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+  }
+}

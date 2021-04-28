@@ -1,0 +1,116 @@
+@import "variables.scss";
+
+%nav-link-icon {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+}
+
+.nav {
+  padding-top: 20px;
+  &__ul {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 0 4px 4px 20px;
+  }
+  &__li {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease, border 0.3s ease;
+  }
+  &__li:hover {
+    background-color: rgba(8, 40, 54, 0.2);
+  }
+  &__li a:hover {
+    font-weight: 600;
+  }
+  &__li_active a {
+    font-weight: 600;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    color: $dark;
+    padding: 5px 5px 5px 30px;
+  }
+  &__link-sub {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    color: $dark;
+    padding: 5px 5px 5px 5px;
+    background-color: rgba(18, 87, 117, 0.4);
+  }
+
+  .home-icon::before {
+    @extend %nav-link-icon;
+    background: url("./../assets/img/home.svg");
+  }
+  .reports-icon::before {
+    @extend %nav-link-icon;
+    background: url("./../assets/img/reports.svg");
+  }
+  .galery-icon::before {
+    @extend %nav-link-icon;
+    background: url("./../assets/img/galery.svg");
+  }
+  .users-icon::before {
+    @extend %nav-link-icon;
+    background: url("./../assets/img/users.svg");
+  }
+  .settings-icon::before {
+    @extend %nav-link-icon;
+    background: url("./../assets/img/settings.svg");
+  }
+  &__link-text {
+    flex: 1 0 auto;
+  }
+  &__sublist-icon {
+    width: 20px;
+  }
+  &__sublist-icon_up::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid $dark;
+  }
+  &__sublist-icon_down::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid $dark;
+  }
+  &__border-line {
+    width: 80%;
+    height: 2px;
+    margin: 10px 0 10px 10%;
+    background-color: $brown;
+  }
+  &__ul_hide{
+    display: none;
+  }
+  &__li-sub {
+    border-left: 4px solid transparent;
+  }
+  &__li-sub:hover {
+    border-left: 4px solid $green;
+  }
+  &__admin-nav {
+    transition: 0.3s ease-in;
+  }
+}

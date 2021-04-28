@@ -1,0 +1,54 @@
+@import "variables.scss";
+.popup-wrapper {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100vw;
+  height: 100vh;
+  &__container {
+    position: relative;
+    background-color: white;
+    width: 600px;
+    min-height: 420px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  }
+  &__hello {
+    margin-top: 20px;
+    margin-left: 150px;
+    width: 300px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+  }
+  &__form .form__selector {
+    display: block;
+    padding: 4px 4px 4px 2px;
+    width: 50%;
+    border: 2px solid $dark;
+    border-radius: 7px;
+    font-size: 18px;
+    transition: 0.2s ease;
+  }
+  &__form .form__buttons-container {
+    margin-top: 130px;
+    display: flex;
+    width: 360px;
+    justify-content: space-between;
+  }
+  &__form .btn_red button {
+    background-color: $red;
+  }
+  &__form .btn_red button:hover {
+    background-color: $light_red;
+  }
+  &__form .btn_green button {
+    background-color: $green;
+  }
+  &__form .btn_green button:hover {
+    background-color: $light_green;
+  }
+}

@@ -1,0 +1,99 @@
+@import "variables.scss";
+
+.users-container {
+  display: flex;
+  height: 100%;
+  padding: 20px;
+  &__users {
+    flex: 1 1 auto;
+  }
+  &__users-creater {
+    flex: 0 1 500px;
+  }
+  &__creater-box {
+    width: 460px;
+    height: 450px;
+    background-color: #c6e7f5;
+    border-radius: 10px;
+  }
+}
+.creater-box {
+  padding: 10px;
+  margin-left: auto;
+  &__hello {
+    width: 80%;
+    margin-top: 15px;
+    margin-left: 10%;
+    text-align: center;
+  }
+  &__hello span {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .form__button {
+    margin-top: 60px;
+  }
+}
+.user {
+  width: 640px;
+  height: 96px;
+  border-radius: 10px;
+  background-color: #c6e7f5;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  &__logo {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border: 1px solid $dark;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  &__logo img {
+    position: absolute;
+    width: 50px;
+  }
+  &__name {
+    font-weight: 600;
+    font-size: 22px;
+    margin-right: 30px;
+  }
+  &__role {
+    font-size: 18px;
+    font-style: italic;
+    margin-right: 10px;
+  }
+  &__space {
+    flex: 1 1 auto;
+  }
+  &__reset-password {
+    margin-right: 10px;
+  }
+  &__reset-password button {
+    font-size: 14px;
+    height: 30px;
+  }
+  &__edit {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: 0.1s ease;
+  }
+  &__edit:hover {
+    width: 34px;
+    height: 34px;
+  }
+  &__delete {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: 0.1s ease;
+  }
+  &__delete:hover {
+    width: 34px;
+    height: 34px;
+  }
+}

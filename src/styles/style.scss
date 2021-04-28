@@ -1,0 +1,182 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+//Шрифты
+@import "fonts.scss";
+//Переменные
+@import "variables.scss";
+@import "buttons.scss";
+@import "header.scss";
+@import "form.scss";
+@import "nav.scss";
+@import "users.scss";
+@import "login.scss";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $dark;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: 100px 1fr 20px;
+  grid-template-areas: "head head" "nav content" "foot foot";
+}
+.header {
+  grid-area: head;
+}
+.nav-wrapper {
+  grid-area: nav;
+  background-color: $semi_dark_blue;
+}
+.content-wrapper {
+  grid-area: content;
+  overflow: auto;
+}
+.footer-wrapper {
+  grid-area: foot;
+  background-color: $blue;
+}
+
+.device-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-template-rows: repeat(auto-fit,  420px);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.device {
+  &__name {
+    height: 30px;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+  }
+  &__card {
+    background-color: #cbe5f0;
+    height: 420px - 30;
+    box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    flex-direction: column;
+  }
+  &__control-container {
+    display: flex;
+    padding: 5px;
+  }
+  &__representation {
+    background-color: #95d5f0;
+    border-radius: 5px;
+    flex: 0 0 140px;
+    height: 172px;
+    padding: 5px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  &__img-container {
+    position: relative;
+    height: 110px;
+  }
+  &__img img {
+    width: 100px;
+    height: 100px;
+  }
+  &__img-block {
+    position: absolute;
+    left: 70%;
+    bottom: 10%;
+  }
+  &__img-block img {
+    width: 30px;
+    height: 30px;
+  }
+  &__rep-value {
+    margin-left: 10px;
+    padding: 0 0 5px 0;
+    font-size: 18px;
+    color: $brown;
+    font-weight: 600;
+  }
+  &__rep-value:last-child {
+    padding: 0;
+  }
+  &__manual-control {
+    padding: 5px;
+  }
+  &__vertical-divider {
+    width: 3px;
+    height: 130px;
+    background-color: rgba(245, 149, 37, 0.4);
+    margin: 5px 10px;
+    border-radius: 3px;
+  }
+  &__parametrs {
+    flex: 1 0 auto;
+    padding: 5px;
+  }
+  &__parametrs-item{
+    font-size: 18px;
+    color: $brown;
+    padding: 5px;
+  }
+  &__footer {
+    display:flex;
+    padding: 5px;
+    height: 70px;
+  }
+  &__signals {
+    flex: 1 0 auto;
+    padding: 5px 10px;
+  }
+  &__footer-divider{
+    height: 2px;
+    width: 100%;    
+    background-color: rgba(245, 149, 37, 0.4);
+    margin-top: 10px;
+  }
+  &__signal-message{
+    margin-top: 5px;
+    background-color: rgba(194, 56, 10, .4);
+    border-radius: 5px;
+    font-size: 18px;
+    color: $red;
+    padding: 8px 5px;
+    text-align: center;
+    overflow: hidden;
+  }
+  &__settings {
+    align-self: flex-start;
+    padding-right: 5px;
+    cursor: pointer;
+  }
+  &__settings img{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.manual {
+  &__hello {
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  &__switch {
+    margin: 0 0 20px 0;
+  }
+  &__button {
+    margin: 0;
+  }
+  &__button button {
+    font-size: 14px;
+    width: 120px;
+    height: 35px;
+  }
+}
