@@ -1,11 +1,9 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://172.23.238.27/api/",
+  baseURL: "https://172.26.90.58/api/",
   timeout: 1000,
-  headers: {
-    withCredentials: true
-  }
+  withCredentials: true
 })
 
 export default instance;

@@ -1,0 +1,13 @@
+.errorMessage {
+    display: flex;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: red;
+    justify-content: center;
+}
+.errorElement {
+    background-color: rgba(255, 0, 0, .4);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}

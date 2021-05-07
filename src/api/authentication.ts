@@ -7,7 +7,7 @@ const authenticationAPI = {
       const response = await instance.post<ILoginAccepted>("users/login", login);
       return response.data;
     } catch (error) {
-      return error
+      return Promise.reject(error);
     }
   },
   logout: async (): Promise<IBase> => {
@@ -15,7 +15,7 @@ const authenticationAPI = {
       const response = await instance.get<IBase>("users/logout")
       return response.data
     } catch (error) {
-      return error;
+      return Promise.reject(error);
     }
   },
   me: async (): Promise<IMe> => {
@@ -23,7 +23,7 @@ const authenticationAPI = {
       const response = await instance.get<IMe>("users/me")
       return response.data
     } catch (error) {
-      return error
+      return Promise.reject(error);
     }
   },
   createUser: async (user: sendUserData): Promise<ICreateUser> => {
@@ -31,7 +31,8 @@ const authenticationAPI = {
       const response = await instance.post("users/createUser", user)
       return response.data
     } catch (error) {
-      return error
+      return Promise.reject(error);
     }
   }
 }
+export default authenticationAPI;
