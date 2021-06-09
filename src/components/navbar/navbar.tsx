@@ -1,12 +1,13 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const Navbar: React.FunctionComponent = () => {
   return <nav className="nav-wrapper nav">
     <ul className="nav__ul">
       <li className="nav__li">
-        <a href="#" className="nav__link home-icon">
+        <NavLink to={"/devices"} activeClassName={"nav__li_active"} className={"nav__link home-icon"}>
           <div className="nav__link-text">Домой</div>
-        </a>
+        </NavLink>
       </li>
       <li className="nav__li ">
         <a href="#" className="nav__link reports-icon">
@@ -22,10 +23,10 @@ const Navbar: React.FunctionComponent = () => {
     <div className="nav__admin-nav">
       <div className="nav__border-line"></div>
       <ul className="nav__ul">
-        <li className="nav__li nav__li_active">
-          <a href="#" className="nav__link users-icon">
+        <li className="nav__li">
+          <NavLink to={"/users"} className={"nav__link users-icon"} activeClassName={"nav__li_active"}>
             <div className="nav__link-text">Пользователи</div>
-          </a>
+          </NavLink>
         </li>
         <li className="nav__li ">
           <a href="#" className="nav__link settings-icon">

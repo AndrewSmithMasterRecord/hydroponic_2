@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer, {IAuthState} from "./authentication/authenticationReducer";
+import authReducer from "./authentication/authenticationReducer";
 import reduxThunk from "redux-thunk";
+import {useDispatch} from "react-redux";
+import errorsReducer from "./errors/errorsReducer";
+import usersReducer from "./users/usersReducer";
 
 
 const reducer = {
-  auth: authReducer
+  auth: authReducer,
+  errors: errorsReducer,
+  users: usersReducer
 }
 
 const store = configureStore({
@@ -14,5 +19,6 @@ const store = configureStore({
 })
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = ReturnType<typeof store.dispatch>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 export default store;

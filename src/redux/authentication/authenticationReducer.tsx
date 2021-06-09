@@ -1,6 +1,7 @@
 import {loginData, sendUserData, user} from "../../api/types";
 import {AnyAction} from "redux";
 import authenticationAPI from "../../api/authentication";
+import {addError, ERRORS_CREATE_USER} from "../errors/errorsReducer";
 
 const AUTH_LOGOUT = "AUTH_LOGOUT";
 const AUTH_CREATE_USER = "AUTH_CREATE_USER";
@@ -116,5 +117,17 @@ export const getMe = () => async (dispatch: any) => {
 export const logoutMe = () => async (dispatch: any) => {
   const response = await authenticationAPI.logout();
   dispatch(unsetMeAC());
+}
+
+export const createUser = (newUser: sendUserData) => async (dispatch: any) => {
+  dispatch(isFetchingAC(true));
+  try{
+    await authenticationAPI.createUser(newUser);
+    dispatch(isFetchingAC(false));
+  }catch (error){
+    dispatch(isFetchingAC(false));
+    if(error.response)
+      dispatch(addError({source: ERRORS_CREATE_USER, message: error.response.data.message}))
+  }
 }
 export default authReducer;

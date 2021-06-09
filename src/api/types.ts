@@ -3,12 +3,13 @@ export interface IBase {
 }
 
 export type user = {
-  role: "Admin" | "user",
+  role: "admin" | "user",
   _id: String,
   name: String,
-  __v: Number
+  __v?: Number
   active? : boolean,
-  password?: String
+  password?: String,
+  passwordChangedAt?: Date
 }
 
 export interface ILoginAccepted extends IBase {
@@ -35,9 +36,11 @@ export interface IMe extends IBase{
 
 export type sendUserData = {
   name: String,
+  role?: String,
   password: String,
   passwordConfirm: String
 }
 export interface ICreateUser extends IBase{
   data: user
 }
+
