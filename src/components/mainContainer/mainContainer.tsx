@@ -7,7 +7,7 @@ const MainContainer:React.FunctionComponent = (props) => {
   return <div className="wrapper">
     <Header/>
     <Navbar/>
-    <div className="content-wrapper">
+    <div className="content-wrapper" id={"content"}>
       {props.children}
     </div>
     <Footer/>

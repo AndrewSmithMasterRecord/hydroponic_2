@@ -10,6 +10,7 @@
 @import "nav.scss";
 @import "users.scss";
 @import "login.scss";
+@import "popup.scss";
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -36,6 +37,7 @@ body {
   background-color: $semi_dark_blue;
 }
 .content-wrapper {
+  position: relative;
   grid-area: content;
   overflow: auto;
 }
