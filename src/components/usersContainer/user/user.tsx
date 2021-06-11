@@ -18,16 +18,20 @@ type stateType = {
 
 
 const User: React.FunctionComponent<userPropType> = (props) => {
- const userId = useSelector((state: RootState) => state.auth.user?._id);
-   const [state, setState] = useState<stateType>({openEditModal: false})
+  const userId = useSelector((state: RootState) => state.auth.user?._id);
+  const [state, setState] = useState<stateType>({openEditModal: false})
 
   const onClickEdit = () => {
     setState({openEditModal: true})
   }
 
+  const closeModal = () => {
+    setState({openEditModal: false})
+  }
+
   return <div className="users-container__user user">
     {state.openEditModal && <UserDialogsModal>
-      <UserEditDialog/>
+      <UserEditDialog user={props.user} closeDialog={closeModal}/>
     </UserDialogsModal>}
     <div className="user__logo">
       <img src={avatar} alt="avatar"/>
