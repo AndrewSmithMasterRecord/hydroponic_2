@@ -4,12 +4,14 @@ import reduxThunk from "redux-thunk";
 import {useDispatch} from "react-redux";
 import errorsReducer from "./errors/errorsReducer";
 import usersReducer from "./users/usersReducer";
+import buttonsReducer from "./buttons/buttonsReducer";
 
 
 const reducer = {
   auth: authReducer,
   errors: errorsReducer,
-  users: usersReducer
+  users: usersReducer,
+  buttons: buttonsReducer
 }
 
 const store = configureStore({

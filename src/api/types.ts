@@ -5,7 +5,7 @@ export interface IBase {
 export type user = {
   role: "admin" | "user",
   _id: String,
-  name: String,
+  name: string,
   __v?: Number
   active? : boolean,
   password?: String,
