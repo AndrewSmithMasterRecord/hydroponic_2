@@ -3,6 +3,7 @@ import {createAction, createReducer} from "@reduxjs/toolkit";
 export const ERRORS_USERS = "errors/users"
 export const ERRORS_CREATE_USER = "errors/createUser"
 export const ERRORS_UPDATE_USER = "errors/updateUser"
+export const ERRORS_UPDATE_USER_PASS = "errors/updateUserPass"
 
 export type error = {
   source: String,

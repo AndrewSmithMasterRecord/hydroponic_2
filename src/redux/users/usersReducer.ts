@@ -1,9 +1,21 @@
 import {createAction, createReducer} from "@reduxjs/toolkit";
 import {user} from "../../api/types";
 import usersAPI from "../../api/users";
-import {addError, ERRORS_UPDATE_USER, ERRORS_USERS, filterDelete} from "../errors/errorsReducer";
-import {updateUser} from "../../api/usersTypes";
-import {addButtonToBlockList, BUTTONS_DELETE_USER, BUTTONS_UPDATE_USER, filterDeleteButtonsBlock} from "../buttons/buttonsReducer";
+import {
+  addError,
+  ERRORS_UPDATE_USER,
+  ERRORS_UPDATE_USER_PASS,
+  ERRORS_USERS,
+  filterDelete
+} from "../errors/errorsReducer";
+import {updateUser, updateUserPassword} from "../../api/usersTypes";
+import {
+  addButtonToBlockList,
+  BUTTONS_DELETE_USER,
+  BUTTONS_UPDATE_PASS,
+  BUTTONS_UPDATE_USER,
+  filterDeleteButtonsBlock
+} from "../buttons/buttonsReducer";
 
 
 export type usersStateType = {
@@ -75,6 +87,18 @@ export const deleteUserAJAX = (id: String) => async (dispatch: any) => {
   await usersAPI.deleteById(id);
   dispatch(deleteStateUser(id));
   dispatch(filterDeleteButtonsBlock(BUTTONS_DELETE_USER));
+}
+
+export const updateUserPassAJAX = (id: String, data: updateUserPassword, closeDialog: () => void) => async (dispatch: any) => {
+  try {
+    dispatch(addButtonToBlockList(BUTTONS_UPDATE_PASS));
+    await usersAPI.updatePassword(id, data);
+    dispatch(filterDeleteButtonsBlock(BUTTONS_UPDATE_PASS));
+    closeDialog();
+  } catch (error) {
+    dispatch(addError({source: ERRORS_UPDATE_USER_PASS, message: error.response.data.message}));
+    dispatch(filterDeleteButtonsBlock(BUTTONS_UPDATE_PASS));
+  }
 }
 
 

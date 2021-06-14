@@ -25,7 +25,7 @@ export type updateUserPassword = {
 }
 
 export interface IuserChangePass extends IBase{
-  token: String,
+  //token: String,
   data: {
     user: user
   }

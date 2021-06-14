@@ -32,6 +32,7 @@ const UserEditDialog: React.FunctionComponent<propsUserEditType> = (props) => {
     dispatch(updateUserAJAX(props.user._id, data, props.closeDialog));
   }
 
+
   return <div className="popup-wrapper__container">
     <div className="popup-wrapper__hello">
       <div>

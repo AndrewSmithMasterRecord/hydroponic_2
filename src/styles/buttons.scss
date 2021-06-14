@@ -17,11 +17,11 @@
   }
 
   &_block button {
-    background-color: grey;
+    background-color: grey !important;
     box-shadow: 0 0 0 0;
   }
   &_block button:hover {
-    background-color: grey;
+    background-color: grey!important;
     box-shadow: 0 0 0 0;
   }
 }

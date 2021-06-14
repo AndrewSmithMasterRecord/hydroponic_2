@@ -1,0 +1,17 @@
+.errorMessage {
+    width: 400px;
+    padding: 5px;
+    margin: 5px auto;
+    color: #fd1e00;
+    text-align: center;
+    font-size: 18px;
+}
+.hello{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 90px;
+    width: 400px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
