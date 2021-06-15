@@ -8,14 +8,14 @@ import {RootState} from "../../../redux/store";
 import {pumpGetViewAJAX, setPumpControlAJAX} from "../../../redux/pump/pumpReducer";
 
 const Device: React.FunctionComponent = () => {
-  const view = useSelector((state: RootState)=> state.pump.view);
+  const view = useSelector((state: RootState) => state.pump.view);
   const control = useSelector((state: RootState) => state.pump.control);
   const dispatch = useDispatch();
   const fetchingArray = useSelector((state: RootState) => state.buttons.buttons);
 
 
   const checkCreator = (value: "block" | "manualMode" | "manualOn") => () => {
-    if(control[value] === 0){
+    if (control[value] === 0) {
       dispatch(setPumpControlAJAX({[value]: 1}))
     } else {
       dispatch(setPumpControlAJAX({[value]: 0}))
@@ -34,11 +34,16 @@ const Device: React.FunctionComponent = () => {
         <div className="device__card">
           <div className="device__control-container">
             <div className="device__representation">
-              <div className="device__img-container">
+              <div className="device__img-container" onMouseDown={() => {
+                console.log("mouse down")
+              }}
+                   onMouseUp={() => {
+                     console.log("mouse up")
+                   }}>
                 <div className="device__img">
-                  <img src={view.state === 0? pumpStop : pumpStart} alt=""/>
+                  <img src={view.state === 0 ? pumpStop : pumpStart} alt=""/>
                 </div>
-                <div className="device__img-block" style={{display: view.isBlocking === 1? "block" : "none"}}>
+                <div className="device__img-block" style={{display: view.isBlocking === 1 ? "block" : "none"}}>
                   <img src={deleteIcon} alt=""/>
                 </div>
               </div>
@@ -58,13 +63,15 @@ const Device: React.FunctionComponent = () => {
               </div>
               <div>
                 <div className="manual__switch check-box-slider">
-                  <input type="checkbox" checked={control.manualMode == 1? true: false}
+                  <input type="checkbox" checked={control.manualMode == 1 ? true : false}
                          onChange={checkCreator("manualMode")}
                          disabled={fetchingArray.some(item => item === "pump manualMode")}/>
                 </div>
-                <div className="manual__button btn">
+                <div
+                    className={`manual__button btn ${fetchingArray.some(item => item === "pump block") ? "btn_block" : ""}`}>
                   <button disabled={fetchingArray.some(item => item === "pump block")}
-                  onClick={checkCreator("block")}>Блокировать</button>
+                          onClick={checkCreator("block")}>Блокировать
+                  </button>
                 </div>
               </div>
             </div>
