@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import pumpGreen from "./../../../assets/img/pump_icon_green.svg";
 import deleteIcon from "./../../../assets/img/delete.svg";
 import settingsIcon from "./../../../assets/img/settings.svg";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../../redux/store";
+import {pumpGetViewAJAX} from "../../../redux/pump/pumpReducer";
 
 const Device: React.FunctionComponent = () => {
+  const view = useSelector((state: RootState)=> state.pump.view);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(pumpGetViewAJAX())
+  }, [dispatch]);
   return (
       <div className="device">
         <div className="device__name">

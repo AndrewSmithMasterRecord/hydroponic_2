@@ -5,13 +5,15 @@ import {useDispatch} from "react-redux";
 import errorsReducer from "./errors/errorsReducer";
 import usersReducer from "./users/usersReducer";
 import buttonsReducer from "./buttons/buttonsReducer";
+import pumpReducer from "./pump/pumpReducer";
 
 
 const reducer = {
   auth: authReducer,
   errors: errorsReducer,
   users: usersReducer,
-  buttons: buttonsReducer
+  buttons: buttonsReducer,
+  pump: pumpReducer
 }
 
 const store = configureStore({

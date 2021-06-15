@@ -4,6 +4,7 @@ export const ERRORS_USERS = "errors/users"
 export const ERRORS_CREATE_USER = "errors/createUser"
 export const ERRORS_UPDATE_USER = "errors/updateUser"
 export const ERRORS_UPDATE_USER_PASS = "errors/updateUserPass"
+export const ERRORS_PUMP = "errors/pump";
 
 export type error = {
   source: String,

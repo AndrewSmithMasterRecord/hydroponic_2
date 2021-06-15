@@ -96,7 +96,8 @@ export const updateUserPassAJAX = (id: String, data: updateUserPassword, closeDi
     dispatch(filterDeleteButtonsBlock(BUTTONS_UPDATE_PASS));
     closeDialog();
   } catch (error) {
-    dispatch(addError({source: ERRORS_UPDATE_USER_PASS, message: error.response.data.message}));
+    if (error.response)
+      dispatch(addError({source: ERRORS_UPDATE_USER_PASS, message: error.response.data.message}));
     dispatch(filterDeleteButtonsBlock(BUTTONS_UPDATE_PASS));
   }
 }
