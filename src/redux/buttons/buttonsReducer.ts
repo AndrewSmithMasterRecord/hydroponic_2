@@ -2,7 +2,7 @@ import {createAction, createReducer} from "@reduxjs/toolkit";
 
 export const BUTTONS_UPDATE_USER = "buttons/updateUser";
 export const BUTTONS_DELETE_USER = "buttons/deleteUser";
-export const BUTTONS_UPDATE_PASS = "button/updatePassword";
+export const BUTTONS_UPDATE_PASS = "buttons/updatePassword";
 
 export type buttonsStateType = {
   buttons: Array<String>

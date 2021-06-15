@@ -1,17 +1,30 @@
-import React, {useEffect} from 'react';
-import pumpGreen from "./../../../assets/img/pump_icon_green.svg";
+import React, {useEffect, useState} from 'react';
+import pumpStart from "./../../../assets/img/pump_icon_green.svg";
+import pumpStop from "./../../../assets/img/pump_icon.svg";
 import deleteIcon from "./../../../assets/img/delete.svg";
 import settingsIcon from "./../../../assets/img/settings.svg";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import {pumpGetViewAJAX} from "../../../redux/pump/pumpReducer";
+import {pumpGetViewAJAX, setPumpControlAJAX} from "../../../redux/pump/pumpReducer";
 
 const Device: React.FunctionComponent = () => {
   const view = useSelector((state: RootState)=> state.pump.view);
+  const control = useSelector((state: RootState) => state.pump.control);
   const dispatch = useDispatch();
+  const fetchingArray = useSelector((state: RootState) => state.buttons.buttons);
+
+
+  const checkCreator = (value: "block" | "manualMode" | "manualOn") => () => {
+    if(control[value] === 0){
+      dispatch(setPumpControlAJAX({[value]: 1}))
+    } else {
+      dispatch(setPumpControlAJAX({[value]: 0}))
+    }
+  }
 
   useEffect(() => {
-    dispatch(pumpGetViewAJAX())
+    dispatch(pumpGetViewAJAX());
+
   }, [dispatch]);
   return (
       <div className="device">
@@ -23,18 +36,18 @@ const Device: React.FunctionComponent = () => {
             <div className="device__representation">
               <div className="device__img-container">
                 <div className="device__img">
-                  <img src={pumpGreen} alt=""/>
+                  <img src={view.state === 0? pumpStop : pumpStart} alt=""/>
                 </div>
-                <div className="device__img-block">
+                <div className="device__img-block" style={{display: view.isBlocking === 1? "block" : "none"}}>
                   <img src={deleteIcon} alt=""/>
                 </div>
               </div>
               <div className="device__representation-parametrs">
                 <div className="device__rep-value">
-                  <span>900 сек</span>
+                  <span>{`${view.timer} сек`}</span>
                 </div>
                 <div className="device__rep-value">
-                  80 л/мин
+                  {`${view.performance} л/мин`}
                 </div>
               </div>
             </div>
@@ -45,10 +58,13 @@ const Device: React.FunctionComponent = () => {
               </div>
               <div>
                 <div className="manual__switch check-box-slider">
-                  <input type="checkbox"/>
+                  <input type="checkbox" checked={control.manualMode == 1? true: false}
+                         onChange={checkCreator("manualMode")}
+                         disabled={fetchingArray.some(item => item === "pump manualMode")}/>
                 </div>
                 <div className="manual__button btn">
-                  <button>Блокировать</button>
+                  <button disabled={fetchingArray.some(item => item === "pump block")}
+                  onClick={checkCreator("block")}>Блокировать</button>
                 </div>
               </div>
             </div>
