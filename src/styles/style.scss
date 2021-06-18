@@ -35,6 +35,7 @@ body {
 .nav-wrapper {
   grid-area: nav;
   background-color: $semi_dark_blue;
+  z-index: 100;
 }
 .content-wrapper {
   position: relative;
@@ -56,6 +57,7 @@ body {
 }
 
 .device {
+  position: relative;
   &__name {
     height: 30px;
     font-size: 22px;
@@ -75,6 +77,7 @@ body {
     padding: 5px;
   }
   &__representation {
+    position: relative;
     background-color: #95d5f0;
     border-radius: 5px;
     flex: 0 0 140px;
@@ -82,10 +85,12 @@ body {
     padding: 5px;
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.4);
     cursor: pointer;
+    transition: left ease .2s, top ease .2s;
   }
   &__img-container {
     position: relative;
     height: 110px;
+    left: 0px;
   }
   &__img img {
     width: 100px;
@@ -101,6 +106,7 @@ body {
     height: 30px;
   }
   &__rep-value {
+    text-align: left;
     margin-left: 10px;
     padding: 0 0 5px 0;
     font-size: 18px;
@@ -108,6 +114,7 @@ body {
     font-weight: 600;
   }
   &__rep-value:last-child {
+    text-align: left;
     padding: 0;
   }
   &__manual-control {
@@ -164,6 +171,74 @@ body {
     height: 30px;
   }
 }
+
+.configMenu{
+  display: none;
+  left: 0px;
+  top: 0px;
+  z-index: 2000;
+  position: absolute;
+  background-color: $background;
+  width: 360px;
+  min-height: 200px;
+  padding: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+  border: 2px solid black;
+
+  &_open{
+    display: block;
+  }
+  &__header{
+    padding: 4px;
+    background-color: rgba(25, 182 , 245, .4);
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  &__closeIcon{
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 0 0 0 auto;
+  }
+  &__closeIcon img{
+    cursor: pointer;
+    width: 25px;
+  }
+  &__inputsContainer{
+    width: 100%;
+    padding: 10px;
+  }
+  &__inputGroup{
+    display: flex;
+    margin-bottom: 10px;
+  }
+  &__inputComment{
+    margin: 0 0 0 10px;
+    align-self: center;
+    font-size: 16px;
+  }
+  &__input{
+    display: block;
+    padding: 4px;
+    width: 70px;
+    border: 2px solid $dark;
+    border-radius: 7px;
+    background-color: white;
+    transition: 0.2s ease;
+  }
+  &__input:hover {
+    border: 2px solid $blue;
+    box-shadow: 0 0 5px $blue;
+  }
+  &__input input{
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    width: 60px;
+    margin: 0 auto;
+  }
+}
+
 
 .manual {
   &__hello {
