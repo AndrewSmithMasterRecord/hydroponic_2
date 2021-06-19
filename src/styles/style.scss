@@ -25,10 +25,11 @@ body {
 .wrapper {
   height: 100vh;
   display: grid;
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: 100px 1fr 20px;
   grid-template-areas: "head head" "nav content" "foot foot";
 }
+
 .header {
   grid-area: head;
 }
@@ -36,6 +37,12 @@ body {
   grid-area: nav;
   background-color: $semi_dark_blue;
   z-index: 100;
+  overflow: hidden;
+  width: 45px;
+  transition: width ease .3s;
+}
+.nav-wrapper:hover{
+  width: 230px;
 }
 .content-wrapper {
   position: relative;
@@ -216,26 +223,6 @@ body {
     margin: 0 0 0 10px;
     align-self: center;
     font-size: 16px;
-  }
-  &__input{
-    display: block;
-    padding: 4px;
-    width: 70px;
-    border: 2px solid $dark;
-    border-radius: 7px;
-    background-color: white;
-    transition: 0.2s ease;
-  }
-  &__input:hover {
-    border: 2px solid $blue;
-    box-shadow: 0 0 5px $blue;
-  }
-  &__input input{
-    text-align: center;
-    display: block;
-    font-size: 16px;
-    width: 60px;
-    margin: 0 auto;
   }
 }
 

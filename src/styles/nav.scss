@@ -15,7 +15,7 @@
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    padding: 0 4px 4px 20px;
+    padding: 0 4px 4px 10px;
   }
   &__li {
     display: block;
@@ -31,6 +31,7 @@
   }
   &__li_active {
     font-weight: 600;
+    background-color: rgba(8, 40, 54, 0.4);
   }
 
   &__link {
@@ -73,6 +74,7 @@
   }
   &__link-text {
     flex: 1 0 auto;
+    padding-left: 5px;
   }
   &__sublist-icon {
     width: 20px;

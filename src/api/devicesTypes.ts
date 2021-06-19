@@ -13,17 +13,31 @@ export interface IPumpView extends IBase{
 }
 
 export type pumpControlType = {
-  power?: Number,
-  timerOn?: Number,
-  timerOff?: Number,
-  flowControl?: Number,
-  jobPerformance?: Number,
-  dMaxPerformance?: Number,
-  dMinPerformance?: Number,
-  resetError?: Number,
-  block?: Number,
-  manualMode?: Number,
-  manualOn?: Number
+  power: number,
+  timerOn: number,
+  timerOff: number,
+  flowControl: number,
+  jobPerformance: number,
+  dMaxPerformance: number,
+  dMinPerformance: number,
+  resetError: number,
+  block: number,
+  manualMode: number,
+  manualOn: number
+}
+
+export type pumpSetControlType = {
+  power?: number,
+  timerOn?: number,
+  timerOff?: number,
+  flowControl?: number,
+  jobPerformance?: number,
+  dMaxPerformance?: number,
+  dMinPerformance?: number,
+  resetError?: number,
+  block?: number,
+  manualMode?: number,
+  manualOn?: number
 }
 
 export interface IPumpControl extends IBase{

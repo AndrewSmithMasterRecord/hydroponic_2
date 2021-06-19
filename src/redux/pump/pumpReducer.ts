@@ -4,7 +4,7 @@ import {
   IPumpControl,
   IPumpView,
   pumpConfigType,
-  pumpControlType,
+  pumpControlType, pumpSetControlType,
   pumpViewType
 } from "../../api/devicesTypes";
 import devicesAPI from "../../api/devices";
@@ -91,10 +91,10 @@ export const pumpGetConfigAJAX = () => async (dispatch: any) => {
   }
 }
 
-export const setPumpControlAJAX = (data: pumpControlType) => async (dispatch: any) => {
+export const setPumpControlAJAX = (data: pumpSetControlType) => async (dispatch: any) => {
   try {
     dispatch(addButtonToBlockList(`pump ${Object.keys(data)[0]}`));
-    const response = await pumpApi.setControlValue<pumpControlType, IPumpControl>(data);
+    const response = await pumpApi.setControlValue<pumpSetControlType, IPumpControl>(data);
     dispatch(setPumpControl(response.data));
     dispatch(filterDeleteButtonsBlock(`pump ${Object.keys(data)[0]}`))
   } catch (error) {

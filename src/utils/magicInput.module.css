@@ -1,0 +1,43 @@
+
+.container_error{
+    height: 40px;
+}
+
+.input_wrapper{
+    padding: 4px;
+    width: 70px;
+    border: 2px solid #082836;
+    border-radius: 7px;
+    background-color: white;
+    transition: 0.2s ease;
+}
+.input_wrapper_fetching{
+    border: 2px solid rgba(8, 40, 54, .4);
+    color: rgba(8, 40, 54, .4);
+}
+.input_wrapper input{
+     text-align: center;
+     display: block;
+     font-size: 16px;
+     width: 60px;
+     margin: 0 auto;
+ }
+.input_wrapper span{
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    width: 60px;
+    margin: 0 auto;
+}
+
+.input_error {
+   border-color: #fd1e00;
+}
+.error_message{
+    position: absolute;
+    color: #fd1e00;
+    padding-left: 5px;
+    min-width: 70px;
+    margin-top: 5px;
+}
+
