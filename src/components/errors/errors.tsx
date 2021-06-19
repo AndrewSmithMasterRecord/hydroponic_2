@@ -11,7 +11,7 @@ const Errors: React.FunctionComponent = () => {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState<boolean>(false);
   const onOpenModal = () => {
-    setOpenModal(!openModal);
+    setOpenModal(true);
   }
   const onClearAlarms = () => {
     setOpenModal(false);
@@ -26,24 +26,24 @@ const Errors: React.FunctionComponent = () => {
   const [showMessage, showMessageSet] = useState<boolean>(false);
   const [isTimerSet, timerSet] = useState<boolean>(false);
 
-if(alarmsList.length !== 0){
-  if (alarmsList[alarmsList.length - 1].message !== oldAlarm) {
-    oldAlarmSet(alarmsList[alarmsList.length - 1].message);
-    showMessageSet(true);
-    if (!isTimerSet){
-      timerSet(true);
-      setTimeout(() => {
-        timerSet(false);
-        showMessageSet(false)
-      }, 5000);
+  if (alarmsList.length !== 0) {
+    if (alarmsList[alarmsList.length - 1].message !== oldAlarm) {
+      oldAlarmSet(alarmsList[alarmsList.length - 1].message);
+      showMessageSet(true);
+      if (!isTimerSet) {
+        timerSet(true);
+        setTimeout(() => {
+          timerSet(false);
+          showMessageSet(false)
+        }, 5000);
+      }
     }
   }
-}
 
-  return <div className="alarms" onClick={onOpenModal}>
+  return <div className="alarms" >
 
     {openModal && <UserDialogsModal elementId={"main"}>
-      <div className="popup-wrapper__container popup-wrapper__container_alarms">
+      <div className="popup-wrapper__container popup-wrapper__container_alarms" >
         <div className="popup-wrapper__hello popup-wrapper__hello_alarms">
           <span>Ошибки.</span>
         </div>
@@ -62,10 +62,10 @@ if(alarmsList.length !== 0){
     </UserDialogsModal>}
 
 
-    <div className="alarms__icon">
+    <div className="alarms__icon" onClick={onOpenModal}>
       <img src={alarmsList.length === 0 ? warnings : warnings_red}/>
     </div>
-    <div className="alarms__counter" style={{color: alarmsList.length !== 0? "#fd1e00" : "#082836"}}>
+    <div className="alarms__counter" style={{color: alarmsList.length !== 0 ? "#fd1e00" : "#082836"}}>
       <span>{alarmsList.length}</span>
     </div>
     <div className="alarms__message">

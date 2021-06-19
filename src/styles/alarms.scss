@@ -6,9 +6,9 @@
   display: flex;
   align-items: center;
   transition: width ease .3s;
-  cursor: pointer;
 
   &__icon img {
+    cursor: pointer;
     width: 20px;
     margin-right: 5px;
   }
@@ -20,7 +20,7 @@
 
   &__message {
     max-width: 500px;
-    overflow: fragments;
+    overflow: hidden;
     white-space: nowrap;
     color: $light_red;
     font-weight: 600;
