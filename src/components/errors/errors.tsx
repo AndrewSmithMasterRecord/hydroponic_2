@@ -68,7 +68,7 @@ const Errors: React.FunctionComponent = () => {
     <div className="alarms__counter" style={{color: alarmsList.length !== 0 ? "#fd1e00" : "#082836"}}>
       <span>{alarmsList.length}</span>
     </div>
-    <div className="alarms__message">
+    <div className="alarms__message" onClick={onOpenModal}>
       <span>{showMessage && alarmsList.length !== 0 && `${alarmsList[alarmsList.length - 1].message}`}</span>
     </div>
   </div>
