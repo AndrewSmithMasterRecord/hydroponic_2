@@ -32,9 +32,7 @@ const MagicInput: React.FunctionComponent<magicInputPropsType> = (props) => {
   let presentationValue: number;
 
   if (props.valueRange.digitsAfterZero > 0) {
-    debugger
     presentationValue = props.currentValue / Math.pow(10, props.valueRange.digitsAfterZero);
-    console.log(presentationValue)
   } else {
     presentationValue = props.currentValue
   }

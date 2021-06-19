@@ -1,0 +1,50 @@
+@import "variables";
+
+.alarms {
+  height: 20px;
+  flex: 0 1 100px;
+  display: flex;
+  align-items: center;
+  transition: width ease .3s;
+  cursor: pointer;
+
+  &__icon img {
+    width: 20px;
+    margin-right: 5px;
+  }
+
+  &__counter {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  &__message {
+    max-width: 500px;
+    overflow: fragments;
+    white-space: nowrap;
+    color: $light_red;
+    font-weight: 600;
+    background-color: $orange;
+  }
+  &__clearButton{
+    position: relative;
+    width: 150px;
+    transform: translate(-50%);
+    left: 10%;
+    margin-bottom: 15px;
+  }
+  &__buttonContainer{
+    width: 900px;
+
+  }
+  &__list{
+    height: 400px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  &__list__item{
+    color: $red;
+    padding: 5px;
+  }
+}

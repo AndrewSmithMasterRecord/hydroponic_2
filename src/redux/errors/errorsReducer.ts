@@ -7,8 +7,8 @@ export const ERRORS_UPDATE_USER_PASS = "errors/updateUserPass"
 export const ERRORS_PUMP = "errors/pump";
 
 export type error = {
-  source: String,
-  message: String
+  source: string,
+  message: string
 }
 
 type errorsState = {
@@ -16,7 +16,7 @@ type errorsState = {
 
 export const addError = createAction<error>("errors/add");
 export const deleteErrors = createAction("errors/delete");
-export const filterDelete = createAction<String>("errors/filterDelete");
+export const filterDelete = createAction<string>("errors/filterDelete");
 
 const initialState: errorsState = { errors: []};
 

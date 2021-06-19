@@ -12,7 +12,7 @@ import ConfigInputGroup from "../deviceFooter/configInputGroup";
 import MagicInput, {dataSendMagicInputType} from "../../../utils/magicInput";
 
 
-const Device: React.FunctionComponent = () => {
+const Pump: React.FunctionComponent = () => {
   const view = useSelector((state: RootState) => state.pump.view);
   const control = useSelector((state: RootState) => state.pump.control);
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const Device: React.FunctionComponent = () => {
                 {`${view.timer} сек`}
               </div>
               <div className="device__rep-value">
-                {`${view.performance} л/мин`}
+                {`${view.performance / 100} л/мин`}
               </div>
             </div>
           </DeviceButton>
@@ -128,4 +128,4 @@ const Device: React.FunctionComponent = () => {
   )
 }
 
-export default Device;
+export default Pump;

@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+type propsType = {
+  elementId: string
+}
 
-
-class UserDialogsModal extends React.Component<any, any> {
+class UserDialogsModal extends React.Component<propsType, any> {
   constructor(props: any) {
     super(props);
     this.el = document.createElement("div")
   }
 
-  contentContainer: HTMLElement | null = document.getElementById("content");
+  contentContainer: HTMLElement | null = document.getElementById(this.props.elementId);
   el: HTMLDivElement;
 
   componentDidMount(): void {

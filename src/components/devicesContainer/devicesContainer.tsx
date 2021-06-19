@@ -1,9 +1,9 @@
 import React from "react";
-import Device from "./device/device";
+import Pump from "./pump/pump";
 
 const DevicesContainer: React.FunctionComponent = () => {
   return <div className="device-container">
-    <Device/>
+    <Pump/>
   </div>
 }
 

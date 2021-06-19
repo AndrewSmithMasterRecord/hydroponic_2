@@ -2,11 +2,11 @@ import {IBase} from "./types";
 
 
 export type pumpViewType = {
-  state: Number,
-  timer: Number,
-  performance: Number,
-  error: Number,
-  isBlocking: Number
+  state: number,
+  timer: number,
+  performance: number,
+  error: number,
+  isBlocking: number
 }
 export interface IPumpView extends IBase{
   data: pumpViewType

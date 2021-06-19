@@ -24,6 +24,12 @@
     background-color: grey!important;
     box-shadow: 0 0 0 0;
   }
+  &_red button {
+    background-color: $red;
+  }
+  &_red button:hover {
+    background-color: $light_red;
+  }
 }
 
 .check-box-slider input[type="checkbox"] {

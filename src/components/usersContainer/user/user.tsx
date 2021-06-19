@@ -46,13 +46,13 @@ const dispatch = useDispatch();
   }
 
   return <div className="users-container__user user">
-    {state.openEditModal && <UserDialogsModal>
+    {state.openEditModal && <UserDialogsModal elementId={"content"}>
       <UserEditDialog user={props.user} closeDialog={closeModal}/>
     </UserDialogsModal>}
-    {state.openDeleteModal && <UserDialogsModal>
+    {state.openDeleteModal && <UserDialogsModal elementId={"content"}>
       <UserDeleteDialog user={props.user} closeDialog={closeModal}/>
     </UserDialogsModal>}
-    {state.openUpdatePassModal && <UserDialogsModal>
+    {state.openUpdatePassModal && <UserDialogsModal elementId={"content"}>
       <UserUpdatePassDialog user={props.user} closeDialog={closeModal}/>
     </UserDialogsModal>}
 

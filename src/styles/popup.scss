@@ -6,6 +6,7 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 20000;
   &__container {
     position: relative;
     background-color: white;
@@ -18,6 +19,9 @@
     border-radius: 10px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   }
+  &__container_alarms{
+    width: 1000px;
+  }
   &__hello {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -26,6 +30,9 @@
     font-size: 22px;
     font-weight: 600;
     text-align: center;
+  }
+  &__hello_alarms{
+    margin-left: 300px;
   }
   &__form .form__selector {
     display: block;

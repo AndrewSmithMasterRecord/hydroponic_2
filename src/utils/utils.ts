@@ -1,7 +1,7 @@
 import {addError} from "../redux/errors/errorsReducer";
 
 
-export const catchAsync = (dispatch: any, fetching: any, errorType: String, func: any ) => {
+export const catchAsync = (dispatch: any, fetching: any, errorType: string, func: any ) => {
   func.catch( (error: any) => {
     dispatch(fetching(false));
     if(error.response)
