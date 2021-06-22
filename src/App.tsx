@@ -6,6 +6,7 @@ import DevicesContainer from "./components/devicesContainer/devicesContainer";
 import UsersContainer from "./components/usersContainer/usersContainer";
 import {useSelector} from "react-redux";
 import {RootState} from "./redux/store";
+import SettingsContainer from "./components/settings/settingsContainer";
 
 
 const App: React.FunctionComponent = () => {
@@ -21,6 +22,7 @@ const App: React.FunctionComponent = () => {
           <MainContainer>
             <Route path={"/devices"} component={DevicesContainer}/>
             <Route path={"/users"} component={UsersContainer}/>
+            <Route path={"/settings"} component={SettingsContainer}/>
           </MainContainer>
         </Switch>
       </>

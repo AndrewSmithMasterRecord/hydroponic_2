@@ -9,7 +9,11 @@ type dragNDropType = {
   oldTop: number
 }
 
-const DeviceFooter: React.FunctionComponent = (props) => {
+type propsType = {
+  alarmMessage: string
+}
+
+const DeviceFooter: React.FunctionComponent<propsType> = (props) => {
   const configDialogRef = useRef<HTMLDivElement>(null);
   const openConfig = () => {
     if (configDialogRef.current) {
@@ -47,9 +51,9 @@ const DeviceFooter: React.FunctionComponent = (props) => {
     <div className="device__footer">
       <div className="device__signals">
         <div className="device__footer-divider"></div>
-        <div className="device__signal-message">
-          <span>Авария насоса</span>
-        </div>
+        {props.alarmMessage !== "" && <div className="device__signal-message">
+          <span>{props.alarmMessage}</span>
+        </div>}
       </div>
       <div className="device__settings" onClick={openConfig}>
         <img src={settingsIcon} alt=""/>

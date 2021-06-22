@@ -1,0 +1,39 @@
+@import "variables";
+
+
+.settings{
+  padding: 4px 4px 0 4px;
+  &__links{
+    display: flex;
+    background-color: rgba(37, 182, 245, .3);
+    border-radius: 5px 5px 0 0;
+  }
+  &__linkItem{
+    border: 2px solid $dark;
+    border-left: 1px solid $dark;
+    border-right: 1px solid $dark;
+    padding: 5px 8px;
+    border-radius: 5px 5px 0 0;
+    font-size: 18px;
+    background-color: rgba(37, 182, 245, .4);
+    font-style: italic;
+    color: $dark;
+  }
+  &__linkItem a:hover{
+    color: $dark
+  }
+  &__linkItem a:active{
+    color: $dark
+  }
+  &__linkItem a:visited{
+    color: $dark
+  }
+  &__linkItem_aktiv{
+    border-bottom: 0;
+    background-color: white;
+    font-weight: 600;
+  }
+  &__container{
+
+  }
+}

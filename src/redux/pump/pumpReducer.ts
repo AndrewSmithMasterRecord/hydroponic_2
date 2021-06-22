@@ -4,11 +4,11 @@ import {
   IPumpControl,
   IPumpView,
   pumpConfigType,
-  pumpControlType, pumpSetControlType,
+  pumpControlType, pumpSetConfigType, pumpSetControlType,
   pumpViewType
 } from "../../api/devicesTypes";
 import devicesAPI from "../../api/devices";
-import {addError, ERRORS_PUMP, ERRORS_UPDATE_USER_PASS} from "../errors/errorsReducer";
+import {addError, ERRORS_PUMP} from "../errors/errorsReducer";
 import {addButtonToBlockList, filterDeleteButtonsBlock} from "../buttons/buttonsReducer";
 
 type pumpStateType = {
@@ -101,6 +101,18 @@ export const setPumpControlAJAX = (data: pumpSetControlType) => async (dispatch:
     if (error.response)
       dispatch(filterDeleteButtonsBlock(`pump ${Object.keys(data)[0]}`))
       dispatch(addError({source: ERRORS_PUMP, message: error.response.data.message}));
+  }
+}
+export const setPumpConfigAJAX = (data: pumpSetConfigType) => async (dispatch: any) => {
+  try {
+    dispatch(addButtonToBlockList(`pump ${Object.keys(data)[0]}`));
+    const response = await pumpApi.setConfigValue<pumpSetConfigType, IPumpConfig>(data);
+    dispatch(setPumpConfig(response.data));
+    dispatch(filterDeleteButtonsBlock(`pump ${Object.keys(data)[0]}`))
+  } catch (error) {
+    if (error.response)
+      dispatch(filterDeleteButtonsBlock(`pump ${Object.keys(data)[0]}`))
+    dispatch(addError({source: ERRORS_PUMP, message: error.response.data.message}));
   }
 }
 

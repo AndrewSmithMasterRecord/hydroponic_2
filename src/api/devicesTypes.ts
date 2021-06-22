@@ -45,7 +45,10 @@ export interface IPumpControl extends IBase{
 }
 
 export type pumpConfigType = {
-  mode: Number
+  mode: number
+}
+export type pumpSetConfigType = {
+  mode?: number
 }
 
 export interface IPumpConfig extends IBase{

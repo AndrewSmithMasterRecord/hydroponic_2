@@ -1,7 +1,10 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "../../redux/store";
 
 const Navbar: React.FunctionComponent = () => {
+  const me = useSelector((state: RootState)=> state.auth.user);
   return <nav className="nav-wrapper nav">
     <ul className="nav__ul">
       <li className="nav__li">
@@ -20,7 +23,7 @@ const Navbar: React.FunctionComponent = () => {
         </a>
       </li>
     </ul>
-    <div className="nav__admin-nav">
+    {me?.role === "admin" && <div className="nav__admin-nav">
       <div className="nav__border-line"></div>
       <ul className="nav__ul">
         <li className="nav__li">
@@ -29,40 +32,41 @@ const Navbar: React.FunctionComponent = () => {
           </NavLink>
         </li>
         <li className="nav__li ">
-          <a href="#" className="nav__link settings-icon">
+
+          <NavLink to={"/settings"} className={"nav__link settings-icon"} activeClassName={"nav__li_active"}>
             <div className="nav__link-text">Настройки</div>
-            <div className="nav__sublist-icon_down"></div>
-          </a>
+            {/*<div className="nav__sublist-icon_down"></div>*/}
+          </NavLink>
         </li>
-        <ul className="nav__ul nav__ul_hide">
-          <li className="nav__li nav__li-sub">
-            <a href="#" className="nav__link-sub">
-              <div className="nav__link-text">Насос 1</div>
-            </a>
-          </li>
-          <li className="nav__li nav__li-sub">
-            <a href="#" className="nav__link-sub">
-              <div className="nav__link-text">Насос 2</div>
-            </a>
-          </li>
-          <li className="nav__li nav__li-sub">
-            <a href="#" className="nav__link-sub">
-              <div className="nav__link-text">Дренаж</div>
-            </a>
-          </li>
-          <li className="nav__li nav__li-sub">
-            <a href="#" className="nav__link-sub">
-              <div className="nav__link-text">Освещение</div>
-            </a>
-          </li>
-          <li className="nav__li nav__li-sub">
-            <a href="#" className="nav__link-sub">
-              <div className="nav__link-text">Вентиляция</div>
-            </a>
-          </li>
-        </ul>
+        {/*<ul className="nav__ul nav__ul_hide">*/}
+        {/*  <li className="nav__li nav__li-sub">*/}
+        {/*    <a href="#" className="nav__link-sub">*/}
+        {/*      <div className="nav__link-text">Насос 1</div>*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*  <li className="nav__li nav__li-sub">*/}
+        {/*    <a href="#" className="nav__link-sub">*/}
+        {/*      <div className="nav__link-text">Насос 2</div>*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*  <li className="nav__li nav__li-sub">*/}
+        {/*    <a href="#" className="nav__link-sub">*/}
+        {/*      <div className="nav__link-text">Дренаж</div>*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*  <li className="nav__li nav__li-sub">*/}
+        {/*    <a href="#" className="nav__link-sub">*/}
+        {/*      <div className="nav__link-text">Освещение</div>*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*  <li className="nav__li nav__li-sub">*/}
+        {/*    <a href="#" className="nav__link-sub">*/}
+        {/*      <div className="nav__link-text">Вентиляция</div>*/}
+        {/*    </a>*/}
+        {/*  </li>*/}
+        {/*</ul>*/}
       </ul>
-    </div>
+    </div>}
   </nav>
 }
 export default Navbar;

@@ -1,0 +1,18 @@
+.selector_wrapper{
+    padding: 4px;
+    min-width: 100px;
+    border: 2px solid #082836;
+    border-radius: 7px;
+    background-color: white;
+    transition: 0.2s ease;
+}
+.selector_wrapper_fetching{
+    border: 2px solid rgba(8, 40, 54, .4);
+    color: rgba(8, 40, 54, .4);
+}
+.selector_wrapper select{
+    text-align: center;
+    font-size: 16px;
+    min-width: 80px;
+    margin: 0 auto;
+}
