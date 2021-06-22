@@ -5,6 +5,9 @@ class devicesAPI {
   constructor(name: string) {
     this.name = name;
   }
+  set newName(value: string){
+    this.name = value;
+  }
   async getView<T>(){
     try{
       let response = await instance.get<T>(`${this.name}/view`);

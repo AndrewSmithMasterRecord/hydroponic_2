@@ -5,6 +5,12 @@ export const ERRORS_CREATE_USER = "errors/createUser"
 export const ERRORS_UPDATE_USER = "errors/updateUser"
 export const ERRORS_UPDATE_USER_PASS = "errors/updateUserPass"
 export const ERRORS_PUMP = "errors/pump";
+export const ERRORS_DRAIN = "errors/drain";
+export const ERRORS_LIGHT = "errors/light";
+export const ERRORS_HUMIDITY = "errors/humidity";
+export const ERRORS_CLOCK = "errors/clock";
+export const ERRORS_FLOW = "errors/flow";
+export const ERRORS_VENTILATION = "errors/ventilation";
 
 export type error = {
   source: string,

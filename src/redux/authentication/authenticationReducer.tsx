@@ -2,6 +2,7 @@ import {loginData, sendUserData, user} from "../../api/types";
 import {AnyAction} from "redux";
 import authenticationAPI from "../../api/authentication";
 import {addError, ERRORS_CREATE_USER} from "../errors/errorsReducer";
+import {AppDispatch} from "../store";
 
 const AUTH_LOGOUT = "AUTH_LOGOUT";
 const AUTH_CREATE_USER = "AUTH_CREATE_USER";
@@ -96,7 +97,7 @@ const isFetchingAC = (status: boolean): IFetchingAction => ({type: AUTH_IS_FETCH
 const updateMeAC = (data: user) => ({type: AUTH_UPDATE_ME, data: {user: data}} as IUpdateMeAction);
 const setErrorAC = (data: string) => ({type: AUTH_SET_ERROR, data: {errorMessage: data}} as ISetErrorAction);
 
-export const loginMe = (login: loginData) => async (dispatch: any) => {
+export const loginMe = (login: loginData) => async (dispatch: AppDispatch) => {
   dispatch(isFetchingAC(true));
   try {
     const response = await authenticationAPI.login(login);
@@ -109,17 +110,17 @@ export const loginMe = (login: loginData) => async (dispatch: any) => {
   }
 }
 
-export const getMe = () => async (dispatch: any) => {
+export const getMe = () => async (dispatch: AppDispatch) => {
   const response = await authenticationAPI.me();
   dispatch(setMeAC(response.data.data));
 }
 
-export const logoutMe = () => async (dispatch: any) => {
+export const logoutMe = () => async (dispatch: AppDispatch) => {
   const response = await authenticationAPI.logout();
   dispatch(unsetMeAC());
 }
 
-export const createUser = (newUser: sendUserData) => async (dispatch: any) => {
+export const createUser = (newUser: sendUserData) => async (dispatch: AppDispatch) => {
   dispatch(isFetchingAC(true));
   try{
     await authenticationAPI.createUser(newUser);

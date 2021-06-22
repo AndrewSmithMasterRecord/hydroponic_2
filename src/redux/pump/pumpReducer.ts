@@ -10,6 +10,7 @@ import {
 import devicesAPI from "../../api/devices";
 import {addError, ERRORS_PUMP} from "../errors/errorsReducer";
 import {addButtonToBlockList, filterDeleteButtonsBlock} from "../buttons/buttonsReducer";
+import {AppDispatch} from "../store";
 
 type pumpStateType = {
   view: pumpViewType,
@@ -61,7 +62,7 @@ const pumpReducer = createReducer(stateInit, builder => {
 
 const pumpApi = new devicesAPI("pump");
 
-export const pumpGetViewAJAX = () => async (dispatch: any) => {
+export const pumpGetViewAJAX = () => async (dispatch: AppDispatch) => {
   try {
     const response = await pumpApi.getView<IPumpView>();
     dispatch(setPumpView(response.data))
@@ -71,7 +72,7 @@ export const pumpGetViewAJAX = () => async (dispatch: any) => {
   }
 }
 
-export const pumpGetControlAJAX = () => async (dispatch: any) => {
+export const pumpGetControlAJAX = () => async (dispatch: AppDispatch) => {
   try {
     const response = await pumpApi.getControl<IPumpControl>();
     dispatch(setPumpControl(response.data))
@@ -81,7 +82,7 @@ export const pumpGetControlAJAX = () => async (dispatch: any) => {
   }
 }
 
-export const pumpGetConfigAJAX = () => async (dispatch: any) => {
+export const pumpGetConfigAJAX = () => async (dispatch: AppDispatch) => {
   try {
     const response = await pumpApi.getConfig<IPumpConfig>();
     dispatch(setPumpConfig(response.data))
@@ -91,7 +92,7 @@ export const pumpGetConfigAJAX = () => async (dispatch: any) => {
   }
 }
 
-export const setPumpControlAJAX = (data: pumpSetControlType) => async (dispatch: any) => {
+export const setPumpControlAJAX = (data: pumpSetControlType) => async (dispatch: AppDispatch) => {
   try {
     dispatch(addButtonToBlockList(`pump ${Object.keys(data)[0]}`));
     const response = await pumpApi.setControlValue<pumpSetControlType, IPumpControl>(data);
@@ -103,7 +104,7 @@ export const setPumpControlAJAX = (data: pumpSetControlType) => async (dispatch:
       dispatch(addError({source: ERRORS_PUMP, message: error.response.data.message}));
   }
 }
-export const setPumpConfigAJAX = (data: pumpSetConfigType) => async (dispatch: any) => {
+export const setPumpConfigAJAX = (data: pumpSetConfigType) => async (dispatch: AppDispatch) => {
   try {
     dispatch(addButtonToBlockList(`pump ${Object.keys(data)[0]}`));
     const response = await pumpApi.setConfigValue<pumpSetConfigType, IPumpConfig>(data);

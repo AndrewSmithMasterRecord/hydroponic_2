@@ -6,6 +6,12 @@ import errorsReducer from "./errors/errorsReducer";
 import usersReducer from "./users/usersReducer";
 import buttonsReducer from "./buttons/buttonsReducer";
 import pumpReducer from "./pump/pumpReducer";
+import drainPumpReducer from "./drainPump/drainPumpReducer";
+import humidityReducer from "./humidity/humidityReducer";
+import lightReducer from "./light/lightReducer";
+import clockReducer from "./clock/clockReducer";
+import flowReducer from "./flow/flowReducer";
+import ventilationReducer from "./ventilation/ventilationReducer";
 
 
 const reducer = {
@@ -13,7 +19,13 @@ const reducer = {
   errors: errorsReducer,
   users: usersReducer,
   buttons: buttonsReducer,
-  pump: pumpReducer
+  pump: pumpReducer,
+  darin: drainPumpReducer,
+  humidity: humidityReducer,
+  light: lightReducer,
+  clock: clockReducer,
+  flow: flowReducer,
+  ventilation: ventilationReducer
 }
 
 const store = configureStore({

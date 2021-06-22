@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect} from 'react';
 import pumpStart from "./../../../assets/img/pump_icon_green.svg";
 import pumpStop from "./../../../assets/img/pump_icon.svg";
 import {useDispatch, useSelector} from "react-redux";
@@ -23,6 +23,7 @@ const Pump: React.FunctionComponent = () => {
   const view = useSelector((state: RootState) => state.pump.view);
   const control = useSelector((state: RootState) => state.pump.control);
   const config = useSelector((state: RootState) => state.pump.config);
+  const me = useSelector((state: RootState) => state.auth.user);
   const dispatch = useDispatch();
   const fetchingArray = useSelector((state: RootState) => state.buttons.buttons);
 
@@ -137,13 +138,13 @@ const Pump: React.FunctionComponent = () => {
                         valueRange={{min: 0.05, max: 100, digitsAfterZero: 2}}/>
           </ConfigInputGroup>
 
-          <ConfigInputGroup comment={"Режим работы"}>
+          {me?.role == "admin" && <ConfigInputGroup comment={"Режим работы"}>
             <MagicSelector deviceName={"pump"}
                            paramName={"mode"}
                            currentValue={config.mode}
                            dataSendCallback={sendConfigCallback}
                            valueStrings={["по таймеру", "непрерывно"]}/>
-          </ConfigInputGroup>
+          </ConfigInputGroup>}
           <div className="btn btn_red">
             <button style={{fontSize: "14px", width: "120px", height: "30px"}}
                     onClick={resetError}
