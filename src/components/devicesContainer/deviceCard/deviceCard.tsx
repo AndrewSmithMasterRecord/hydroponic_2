@@ -1,9 +1,13 @@
 import React from "react";
 
-const DeviceCard: React.FunctionComponent = (props) => {
+type propsType = {
+  name: string
+}
+
+const DeviceCard: React.FunctionComponent<propsType> = (props) => {
   return <div className="device">
     <div className="device__name">
-      <span>Насос</span>
+      <span>{props.name}</span>
     </div>
     <div className="device__card">
       {props.children}

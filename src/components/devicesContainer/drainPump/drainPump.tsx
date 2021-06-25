@@ -3,61 +3,48 @@ import pumpStart from "./../../../assets/img/pump_icon_green.svg";
 import pumpStop from "./../../../assets/img/pump_icon.svg";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import {
-  pumpGetConfigAJAX,
-  pumpGetControlAJAX,
-  pumpGetViewAJAX,
-  setPumpConfigAJAX,
-  setPumpControlAJAX
-} from "../../../redux/pump/pumpReducer";
 import DeviceButton, {checkType} from "../deviceButton/deviceButton";
 import DeviceCard from "../deviceCard/deviceCard";
 import DeviceBlockManual from "../deviceBlockManual/deviceBlockManual";
 import DeviceFooter from "../deviceFooter/deviceFooter";
 import ConfigInputGroup from "../deviceFooter/configInputGroup";
 import MagicInput, {dataSendMagicInputType} from "../../../utils/magicInput";
-import MagicSelector from "../../../utils/magicSelector";
+import {drainGetControlAJAX, drainGetViewAJAX, setDrainControlAJAX} from "../../../redux/drainPump/drainPumpReducer";
 
 
-const Pump: React.FunctionComponent = () => {
-  const view = useSelector((state: RootState) => state.pump.view);
-  const control = useSelector((state: RootState) => state.pump.control);
-  const config = useSelector((state: RootState) => state.pump.config);
-  const me = useSelector((state: RootState) => state.auth.user);
+const DrainPump: React.FunctionComponent = () => {
+  const view = useSelector((state: RootState) => state.darin.view);
+  const control = useSelector((state: RootState) => state.darin.control);
   const dispatch = useDispatch();
   const fetchingArray = useSelector((state: RootState) => state.buttons.buttons);
 
 
   const checkCreator: checkType = (value) => () => {
     if (control[value] === 0) {
-      dispatch(setPumpControlAJAX({[value]: 1}))
+      dispatch(setDrainControlAJAX({[value]: 1}))
     } else {
-      dispatch(setPumpControlAJAX({[value]: 0}))
+      dispatch(setDrainControlAJAX({[value]: 0}))
     }
   }
 
   const sendCallback: dataSendMagicInputType = (deviceParamName, value) => {
-    dispatch(setPumpControlAJAX({[deviceParamName]: value}));
-  }
-  const sendConfigCallback: dataSendMagicInputType = (deviceParamName, value) => {
-    dispatch(setPumpConfigAJAX({[deviceParamName]: value}));
+    dispatch(setDrainControlAJAX({[deviceParamName]: value}));
   }
 
   const resetError = () => {
-    dispatch(setPumpControlAJAX({resetError: 1}));
+    dispatch(setDrainControlAJAX({resetError: 1}));
   }
 
   useEffect(() => {
-    dispatch(pumpGetViewAJAX());
-    dispatch(pumpGetControlAJAX());
-    dispatch(pumpGetConfigAJAX());
+    dispatch(drainGetViewAJAX());
+    dispatch(drainGetControlAJAX());
   }, [dispatch]);
   return (
-      <DeviceCard name={"Насос"}>
+      <DeviceCard name={"Дренаж"}>
         <div className="device__control-container">
 
           <DeviceButton checkCreator={checkCreator} fetchingArray={fetchingArray} state={view.state}
-                        startIcon={pumpStart} stopIcon={pumpStop} isBlocking={view.isBlocking} deviceName={"pump"}>
+                        startIcon={pumpStart} stopIcon={pumpStop} isBlocking={view.isBlocking} deviceName={"drain"}>
 
             <div className="device__representation-parametrs">
               <div className="device__rep-value">
@@ -73,14 +60,14 @@ const Pump: React.FunctionComponent = () => {
           <DeviceBlockManual manualMode={control.manualMode}
                              checkCreator={checkCreator}
                              fetchingArray={fetchingArray}
-                             deviceName={"pump"}/>
+                             deviceName={"drain"}/>
         </div>
         <div className="device__parametrs">
           <div className="device__parametrs-item">
-            <span><b>{`${control.timerOn}`}</b>{` таймер вкл. сек.`}</span>
+            <span><b>{`${control.timerOn}`}</b>{` таймер откачки сек.`}</span>
           </div>
           <div className="device__parametrs-item">
-            <span><b>{`${control.timerOff}`}</b>{` таймер выкл. сек.`}</span>
+            <span><b>{`${control.levelOn}`}</b>{` таймер уровня сек.`}</span>
           </div>
           <div className="device__parametrs-item">
             <span><b>{`${control.jobPerformance/100}`}</b>{` производительность л/мин`}</span>
@@ -91,64 +78,56 @@ const Pump: React.FunctionComponent = () => {
 
           <ConfigInputGroup comment={"Производительность"}>
             <MagicInput currentValue={control.power}
-                        deviceName={"pump"} paramName={"power"}
+                        deviceName={"drain"} paramName={"power"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 1, max: 100, digitsAfterZero: 0}}/>
           </ConfigInputGroup>
 
-          <ConfigInputGroup comment={"Таймер вкл., сек"}>
-            <MagicInput currentValue={control.timerOn}
-                        deviceName={"pump"} paramName={"timerOn"}
+          <ConfigInputGroup comment={"Таймер уровня, сек"}>
+            <MagicInput currentValue={control.levelOn}
+                        deviceName={"drain"} paramName={"levelOn"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 1, max: 30000, digitsAfterZero: 0}}/>
           </ConfigInputGroup>
 
-          <ConfigInputGroup comment={"Таймер выкл., сек"}>
-            <MagicInput currentValue={control.timerOff}
-                        deviceName={"pump"} paramName={"timerOff"}
+          <ConfigInputGroup comment={"Таймер откачки, сек"}>
+            <MagicInput currentValue={control.timerOn}
+                        deviceName={"drain"} paramName={"timerOn"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 1, max: 30000, digitsAfterZero: 0}}/>
           </ConfigInputGroup>
 
           <ConfigInputGroup comment={"Контроль потока"}>
             <MagicInput currentValue={control.flowControl}
-                        deviceName={"pump"} paramName={"flowControl"}
+                        deviceName={"drain"} paramName={"flowControl"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 0, max: 1, digitsAfterZero: 0}}/>
           </ConfigInputGroup>
 
           <ConfigInputGroup comment={"Рабочая производительность л/мин"}>
             <MagicInput currentValue={control.jobPerformance}
-                        deviceName={"pump"} paramName={"jobPerformance"}
+                        deviceName={"drain"} paramName={"jobPerformance"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 0.05, max: 320, digitsAfterZero: 2}}/>
           </ConfigInputGroup>
 
           <ConfigInputGroup comment={"Дельта макс производительности л/мин"}>
             <MagicInput currentValue={control.dMaxPerformance}
-                        deviceName={"pump"} paramName={"dMaxPerformance"}
+                        deviceName={"drain"} paramName={"dMaxPerformance"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 0.05, max: 100, digitsAfterZero: 2}}/>
           </ConfigInputGroup>
 
           <ConfigInputGroup comment={"Дельта мин производительности л/мин"}>
             <MagicInput currentValue={control.dMinPerformance}
-                        deviceName={"pump"} paramName={"dMinPerformance"}
+                        deviceName={"drain"} paramName={"dMinPerformance"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 0.05, max: 100, digitsAfterZero: 2}}/>
           </ConfigInputGroup>
-
-          {me?.role == "admin" && <ConfigInputGroup comment={"Режим работы"}>
-            <MagicSelector deviceName={"pump"}
-                           paramName={"mode"}
-                           currentValue={config.mode}
-                           dataSendCallback={sendConfigCallback}
-                           valueStrings={["по таймеру", "непрерывно"]}/>
-          </ConfigInputGroup>}
           <div className="btn btn_red">
             <button style={{fontSize: "14px", width: "120px", height: "30px"}}
                     onClick={resetError}
-                    disabled={fetchingArray.some(item => item === "pump resetError")}>Сброс ошибки
+                    disabled={fetchingArray.some(item => item === "drain resetError")}>Сброс ошибки
             </button>
           </div>
 
@@ -158,4 +137,4 @@ const Pump: React.FunctionComponent = () => {
   )
 }
 
-export default Pump;
+export default DrainPump;
