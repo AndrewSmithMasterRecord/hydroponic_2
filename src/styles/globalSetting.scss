@@ -1,0 +1,36 @@
+@import "variables";
+
+.globalSettings {
+  padding: 5px;
+  &__group {
+    padding: 5px;
+  }
+
+  &__hello {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  &__content {
+
+  }
+
+  &__view {
+    font-size: 18px;
+    color: $brown;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+  }
+  &__viewItem{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  &__viewItem:last-child{
+    margin-bottom: 0;
+  }
+  &__itemComment{
+    margin-left: 5px;
+  }
+}

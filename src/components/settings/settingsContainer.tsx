@@ -1,5 +1,7 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
+import GlobalSettings from "./globalSettings/globalSettings";
+import Flow1Settings from "./flow1/flow1";
 
 
 const SettingsContainer: React.FunctionComponent = () => {
@@ -8,16 +10,15 @@ const SettingsContainer: React.FunctionComponent = () => {
       <NavLink to={"/settings/global"}  className="settings__linkItem" activeClassName="settings__linkItem_aktiv">
         Общие
       </NavLink>
-      <NavLink to={"/settings/flow1"}  className="settings__linkItem" activeClassName="settings__linkItem_aktiv">
-        Поток 1
+      <NavLink to={"/settings/flow"}  className="settings__linkItem" activeClassName="settings__linkItem_aktiv">
+        Поток
       </NavLink>
-      <NavLink to={"/settings/flow2"}  className="settings__linkItem" activeClassName="settings__linkItem_aktiv">
-        Поток 2
-      </NavLink>
+
 
     </div>
     <div className="settings__container">
-      Settings
+     <Route path={"/settings/global"} component={GlobalSettings} />
+     <Route path={"/settings/flow"} component={Flow1Settings}/>
     </div>
 
   </div>
