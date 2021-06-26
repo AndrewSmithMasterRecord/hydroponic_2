@@ -1,8 +1,8 @@
 import {IBase, user} from "./types";
 
 export interface IGetAllUsers extends IBase {
-  requestedAt: Date,
-  results: Number,
+  //requestedAt: Date,
+  //results: Number,
   data: {
     data: Array<user>
   }

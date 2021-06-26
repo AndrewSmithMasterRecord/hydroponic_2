@@ -18,9 +18,9 @@ const Navbar: React.FunctionComponent = () => {
         </a>
       </li>
       <li className="nav__li ">
-        <a href="#" className="nav__link galery-icon">
-          <div className="nav__link-text">Галерея</div>
-        </a>
+        <NavLink to={"/trends"} activeClassName={"nav__li_active"} className={"nav__link trends-icon"}>
+          <div className="nav__link-text">Графики</div>
+        </NavLink>
       </li>
     </ul>
     {me?.role === "admin" && <div className="nav__admin-nav">

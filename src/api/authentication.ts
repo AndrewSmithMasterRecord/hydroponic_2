@@ -28,7 +28,7 @@ const authenticationAPI = {
   },
   createUser: async (user: sendUserData): Promise<ICreateUser> => {
     try {
-      const response = await instance.post("users/createUser", user)
+      const response = await instance.post<ICreateUser>("users/createUser", user)
       return response.data
     } catch (error) {
       return Promise.reject(error);

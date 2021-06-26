@@ -1,5 +1,7 @@
 export interface IBase {
-  status: String
+  status: string,
+  requestedAt?: Date;
+  results?: number
 }
 
 export type user = {
@@ -42,5 +44,17 @@ export type sendUserData = {
 }
 export interface ICreateUser extends IBase{
   data: user
+}
+
+export type trendsType = {
+  date: Date;
+  temperature: number;
+  humidity: number;
+  pH: number
+}
+export interface IGetTrends extends IBase{
+data: {
+  data: Array<trendsType>
+}
 }
 

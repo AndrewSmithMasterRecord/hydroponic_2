@@ -12,6 +12,7 @@ import lightReducer from "./light/lightReducer";
 import clockReducer from "./clock/clockReducer";
 import flowReducer from "./flow/flowReducer";
 import ventilationReducer from "./ventilation/ventilationReducer";
+import trendsReducer from "./trends/trendsReducer";
 
 
 const reducer = {
@@ -25,7 +26,8 @@ const reducer = {
   light: lightReducer,
   clock: clockReducer,
   flow: flowReducer,
-  ventilation: ventilationReducer
+  ventilation: ventilationReducer,
+  trends: trendsReducer
 }
 
 const store = configureStore({

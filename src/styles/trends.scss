@@ -1,0 +1,9 @@
+@import "variables";
+
+.trend{
+  width: 100%;
+  &__hello{
+    text-align: center;
+    font-size: 22px;
+  }
+}

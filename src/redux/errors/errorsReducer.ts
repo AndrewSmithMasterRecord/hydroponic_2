@@ -11,6 +11,7 @@ export const ERRORS_HUMIDITY = "errors/humidity";
 export const ERRORS_CLOCK = "errors/clock";
 export const ERRORS_FLOW = "errors/flow";
 export const ERRORS_VENTILATION = "errors/ventilation";
+export const ERRORS_TRENDS = "errors/trends";
 
 export type error = {
   source: string,

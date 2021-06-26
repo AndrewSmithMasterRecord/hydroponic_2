@@ -1,0 +1,11 @@
+.openCalendar{
+    font-size: 26px;
+    padding: 8px 8px 8px 15px;
+    background-color: rgba(37, 182, 245, 0.4);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.openIcon{
+    width: 20px;
+    cursor: pointer;
+}

@@ -60,9 +60,9 @@
     @extend %nav-link-icon;
     background: url("./../assets/img/reports.svg");
   }
-  .galery-icon::before {
+  .trends-icon::before {
     @extend %nav-link-icon;
-    background: url("./../assets/img/galery.svg");
+    background: url("./../assets/img/trends.svg");
   }
   .users-icon::before {
     @extend %nav-link-icon;
