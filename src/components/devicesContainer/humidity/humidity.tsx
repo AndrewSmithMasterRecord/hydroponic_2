@@ -49,10 +49,10 @@ const Humidity: React.FunctionComponent = () => {
 
             <div className="device__representation-parametrs">
               <div className="device__rep-value">
-                {`${view.humidity/100} %`}
+                {`${view.humidity/10} %`}
               </div>
               <div className="device__rep-value">
-                {`${view.temperature / 100} гр.C`}
+                {`${view.temperature / 10} гр.C`}
               </div>
             </div>
           </DeviceButton>

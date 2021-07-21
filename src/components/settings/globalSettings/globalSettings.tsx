@@ -9,13 +9,11 @@ const GlobalSettings: React.FunctionComponent = () => {
   const fetchingButtons = useSelector((state: RootState) => state.buttons)
   const setClock = () => {
     const date = new Date();
-    dispatch(setClockControlAJAX({hoursSet: Number(date.getHours())}));
     dispatch(setClockControlAJAX({minutesSet: Number(date.getMinutes())}));
+    setTimeout(() => {
+      dispatch(setClockControlAJAX({hoursSet: Number(date.getHours())}));
+    }, 200);
   }
-
-  useEffect(() => {
-    dispatch(clockGetViewAJAX())
-  }, [dispatch])
 
   return <div className="globalSettings">
     <div className="globalSettings__group">

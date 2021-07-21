@@ -2,7 +2,12 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
 import MagicInput, {dataSendMagicInputType} from "../../../utils/magicInput";
-import {flowGetViewAJAX, setFlowConfigAJAX, setFlowControlAJAX} from "../../../redux/flow/flowReducer";
+import {
+  flow1GetConfigAJAX, flowGetControlAJAX,
+  flowGetViewAJAX,
+  setFlowConfigAJAX,
+  setFlowControlAJAX
+} from "../../../redux/flow/flowReducer";
 
 const Flow1Settings: React.FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -24,8 +29,10 @@ const Flow1Settings: React.FunctionComponent = () => {
   }
 
   useEffect(() => {
-    dispatch(flowGetViewAJAX(0));
-    dispatch(flowGetViewAJAX(1))
+    dispatch(flow1GetConfigAJAX(0));
+    dispatch(flow1GetConfigAJAX(1));
+    dispatch(flowGetControlAJAX(0));
+    dispatch(flowGetControlAJAX(1));
   }, [dispatch])
 
   return <div className="globalSettings">
@@ -50,7 +57,7 @@ const Flow1Settings: React.FunctionComponent = () => {
           <div className="globalSettings__viewItem">
             <MagicInput deviceName={"flow0"}
                         paramName={"callImpCounter"}
-                        currentValue={flow1.config.callImpCounter}
+                        currentValue={flow1.view.callImpCounter}
                         dataSendCallback={sendConfigCallback}
                         valueRange={{min: 1, max: 32000, digitsAfterZero: 0}}/>
             <div className="globalSettings__itemComment"> Общее количество импульсов</div>
@@ -88,7 +95,7 @@ const Flow1Settings: React.FunctionComponent = () => {
           <div className="globalSettings__viewItem">
             <MagicInput deviceName={"flow1"}
                         paramName={"callImpCounter"}
-                        currentValue={flow2.config.callImpCounter}
+                        currentValue={flow2.view.callImpCounter}
                         dataSendCallback={sendConfigCallback2}
                         valueRange={{min: 1, max: 32000, digitsAfterZero: 0}}/>
             <div className="globalSettings__itemComment"> Общее количество импульсов</div>

@@ -2,7 +2,8 @@ import {IBase} from "./types";
 
 export type flowViewType = {
   performance: number,
-  volume: number
+  volume: number,
+  callImpCounter: number
 }
 
 export interface IFlowView extends IBase{
@@ -21,11 +22,9 @@ export interface IFlowControl extends IBase{
 
 export type flowConfigType = {
   impPerLiter: number,
-  callImpCounter: number
 }
 export type flowConfigSetType = {
-  impPerLiter?: number,
-  callImpCounter?: number
+  impPerLiter?: number
 }
 export interface IFlowConfig extends IBase{
   data: flowConfigType

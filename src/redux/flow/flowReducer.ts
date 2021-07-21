@@ -45,27 +45,27 @@ const stateInit: flowStateType = {
   sensors: [{
     view: {
       performance: 0,
-      volume: 0
+      volume: 0,
+      callImpCounter: 0
     },
     control: {
       resetVolume: 0
     },
     config: {
       impPerLiter: 0,
-      callImpCounter: 0
     }
   },
     {
       view: {
         performance: 0,
-        volume: 0
+        volume: 0,
+        callImpCounter: 0
       },
       control: {
         resetVolume: 0
       },
       config: {
         impPerLiter: 0,
-        callImpCounter: 0
       }
     }
   ]

@@ -11,6 +11,7 @@ import devicesAPI from "../../api/devices";
 import {addError, ERRORS_PUMP} from "../errors/errorsReducer";
 import {addButtonToBlockList, filterDeleteButtonsBlock} from "../buttons/buttonsReducer";
 import {AppDispatch} from "../store";
+import {useDispatch} from "react-redux";
 
 type pumpStateType = {
   view: pumpViewType,
@@ -116,6 +117,5 @@ export const setPumpConfigAJAX = (data: pumpSetConfigType) => async (dispatch: A
     dispatch(addError({source: ERRORS_PUMP, message: error.response.data.message}));
   }
 }
-
 
 export default pumpReducer;
