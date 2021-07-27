@@ -102,7 +102,7 @@ body {
   &__img-container {
     position: relative;
     height: 110px;
-    left: 0px;
+    left: 0;
   }
   &__img img {
     width: 100px;
@@ -186,8 +186,8 @@ body {
 
 .configMenu{
   display: none;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   z-index: 2000;
   position: absolute;
   background-color: $background;
