@@ -1,6 +1,7 @@
 
 .container_error{
-    height: 40px;
+    height: 65px;
+    margin-bottom: 5px;
 }
 
 .input_wrapper{
@@ -38,7 +39,7 @@
     color: #fd1e00;
     padding-left: 5px;
     min-width: 70px;
-    margin-top: 5px;
+    margin-top: 12px;
     background-color: white;
 }
 

@@ -104,21 +104,21 @@ const DrainPump: React.FunctionComponent = () => {
                         valueRange={{min: 0, max: 1, digitsAfterZero: 0}}/>
           </ConfigInputGroup>
 
-          <ConfigInputGroup comment={"Рабочая производительность л/мин"}>
+          <ConfigInputGroup comment={"Производительность л/мин"}>
             <MagicInput currentValue={control.jobPerformance}
                         deviceName={"drain"} paramName={"jobPerformance"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 0.05, max: 320, digitsAfterZero: 2}}/>
           </ConfigInputGroup>
 
-          <ConfigInputGroup comment={"Дельта макс производительности л/мин"}>
+          <ConfigInputGroup comment={"Дельта макс л/мин"}>
             <MagicInput currentValue={control.dMaxPerformance}
                         deviceName={"drain"} paramName={"dMaxPerformance"}
                         dataSendCallback={sendCallback}
                         valueRange={{min: 0.05, max: 100, digitsAfterZero: 2}}/>
           </ConfigInputGroup>
 
-          <ConfigInputGroup comment={"Дельта мин производительности л/мин"}>
+          <ConfigInputGroup comment={"Дельта мин л/мин"}>
             <MagicInput currentValue={control.dMinPerformance}
                         deviceName={"drain"} paramName={"dMinPerformance"}
                         dataSendCallback={sendCallback}

@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../redux/store";
-import {clockGetViewAJAX, setClockControlAJAX} from "../../../redux/clock/clockReducer";
+import {setClockControlAJAX} from "../../../redux/clock/clockReducer";
 
 const GlobalSettings: React.FunctionComponent = () => {
   const dispatch = useDispatch();
